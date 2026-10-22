@@ -1,0 +1,6 @@
+*.pem
+*.key
+*.raw
+*.qcow2
+.aws/
+*.log

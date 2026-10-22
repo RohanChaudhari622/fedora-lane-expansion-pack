@@ -1,0 +1,72 @@
+name = "fedora-lane-secure-server"
+
+description = "Fedora Lane secure server image with required security packages and baseline configuration"
+
+version = "1.0.0"
+
+modules = []
+groups = []
+
+
+[[packages]]
+name = "httpd"
+version = "*"
+
+[[packages]]
+name = "httpd-tools"
+version = "*"
+
+[[packages]]
+name = "openssh-server"
+version = "*"
+
+[[packages]]
+name = "sudo"
+version = "*"
+
+[[packages]]
+name = "firewalld"
+version = "*"
+
+[[packages]]
+name = "policycoreutils"
+version = "*"
+
+[[packages]]
+name = "policycoreutils-python-utils"
+version = "*"
+
+[[packages]]
+name = "selinux-policy-targeted"
+version = "*"
+
+[[packages]]
+name = "vi"
+version = "*"
+
+[[packages]]
+name = "bash-completion"
+version = "*"
+
+[[packages]]
+name = "rsync"
+version = "*"
+
+
+[customizations.kernel]
+
+append = "audit=1"
+
+
+[customizations.services]
+
+enabled = [
+    "sshd",
+    "httpd",
+    "firewalld"
+]
+
+disabled = [
+    "telnet",
+    "rsh"
+]
